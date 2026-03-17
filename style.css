@@ -778,3 +778,51 @@ footer {
 /* Тізімдер мен иконкалар */
 .work-list { list-style: none; padding: 0; margin-top: 15px; }
 .social-links { display: flex; gap: 20px; justify-content: center; margin-top: 15px; }
+
+
+/* --- ЛОГОТИПТІҢ БАЗАЛЫҚ СТИЛІ (Компьютер үшін) --- */
+.logo-img, .footer-logo-img {
+    height: 60px; /* Компьютердегі өлшемі */
+    width: auto;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+/* --- ПЛАНШЕТТЕР ҮШІН (max-width: 768px) --- */
+@media (max-width: 768px) {
+    .logo-img, .footer-logo-img {
+        height: 50px; /* Планшетте сәл кішірейеді */
+    }
+    
+    .logo, .footer-logo {
+        font-size: 1.5rem; /* Жазуы да сәл кішірейеді */
+    }
+}
+
+/* --- ТЕЛЕФОНДАР ҮШІН (max-width: 480px) --- */
+@media (max-width: 480px) {
+    .logo-img {
+        height: 40px; /* Телефонда логотиптің суреті жинақы болады */
+        margin-right: 10px;
+    }
+    
+    .footer-logo-img {
+        height: 45px; /* Футердегі логотип */
+    }
+
+    .logo, .footer-logo {
+        font-size: 1.2rem; /* Телефонда жазу сыйып тұруы үшін */
+    }
+
+    .logo-wrapper, .footer-logo-wrapper {
+        gap: 8px; /* Сурет пен жазудың арасын жақындатамыз */
+    }
+}
+
+
+/* Айналдырғандағы логотиптің телефондағы түрі */
+@media (max-width: 480px) {
+    header.scrolled .logo-img {
+        height: 35px; /* Телефонда айналдырғандағы өте жинақы өлшем */
+    }
+}
