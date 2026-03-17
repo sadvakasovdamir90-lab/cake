@@ -21,7 +21,27 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    
+    position: fixed; /* Экранда қатып тұрады */
+    top: 0;
+    width: 100%;
+    background: transparent; /* Басында мөлдір */
+    transition: all 0.5s ease; /* Плавно өзгеруі үшін */
+    z-index: 2000;
+}
+
+/* Сайтты айналдырғанда (scroll) қосылатын класс */
+header.scrolled {
+    background: rgba(255, 248, 240, 0.8); /* Сүтті түс, бірақ мөлдірлеу */
+    padding: 12px 8%; /* Сәл кішірейеді, жинақы болады */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); /* Жеңіл көлеңке */
+    backdrop-filter: blur(10px); /* Ең бастысы — артын бұлдырату (Glass эффект) */
+    -webkit-backdrop-filter: blur(10px); /* Сафари браузері үшін */
+    border-bottom: 1px solid rgba(212, 163, 115, 0.1); /* Жұқа алтын сызық */
+}
+
+/* Мәзір ішіндегі логотип суретінің де кішіреюі */
+header.scrolled .logo-img {
+    height: 45px;
 }
 
 .logo {
@@ -530,5 +550,149 @@ footer {
 .faq-item.active .faq-question {
     color: var(--accent);
 }
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    position: sticky; /* Экранда қатып тұрады */
+    top: 0;
+    background: rgba(255, 248, 240, 0.95); /* Мөлдірлеу сүтті түс */
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Артын сәл бұлдырату (эффект) */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Сілтемелердің астына сызық шығару (анимациямен) */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent);
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* "Заказать" батырмасы (сопақ стиль тек осыған) */
+nav a.btn-nav {
+    border: 2px solid var(--accent);
+    padding: 10px 25px;
+    border-radius: 50px;
+    margin-left: 35px;
+    transition: 0.4s;
+}
+
+nav a.btn-nav::after {
+    display: none; /* Бұл батырманың асты сызылмайды */
+}
+
+nav a.btn-nav:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* Қазіргі тұрған бөлімді белгілеу (Active) */
+nav a.active {
+    color: var(--accent);
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
+
+/* Логотип фотосына арналған стиль */
+.logo-img {
+    height: 60px;       /* Фотоның биіктігін осы жерден ретте (мысалы 50px немесе 60px) */
+    width: auto;        /* Ені биіктікке қарай автоматты түрде реттеледі */
+    margin-right: 15px; /* Фото мен "Sweet Aina" жазуының арасын ашады */
+    object-fit: contain; /* Фото қысылып қалмауы үшін */
+    vertical-align: middle; /* Жазумен бір сызықта тұруы үшін */
+}
+
+/* Шапкада бәрі бір қатарда (ровно) тұруы үшін */
+header {
+    display: flex;
+    align-items: center; /* Бәрін вертикально ортаға қояды */
+    padding: 15px 8%;
+    background: rgba(255, 248, 240, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Лого жазуы мен фотоны бір блокқа жинау (ыңғайлы болу үшін) */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.footer-work h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent); /* Алтын түс */
+}
+
+.work-list {
+    list-style: none;
+    padding: 0;
+}
+
+.work-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center; /* Ортаға қою */
+    gap: 10px;
+}
+
+.work-list li span {
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.work-note {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+/* Адаптация (Телефонда) */
+@media (max-width: 480px) {
+    .work-list li {
+        font-size: 0.85rem;
+    }
+}
+
 
 
